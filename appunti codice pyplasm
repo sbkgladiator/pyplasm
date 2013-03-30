@@ -1,3 +1,18 @@
+###cerchio
+def circle ( p ) :
+alpha = p [ 0 ]
+return [ COS ( alpha ) , SIN ( alpha ) ]
+obj = MAP ( circle ) ( INTERVALS ( 2 * PI ) ( 32 ) )
+VIEW ( obj )
+
+###spirale
+def circle ( p ) :
+    alpha = p [ 0 ]
+    return [ COS ( alpha ) , SIN ( alpha ) , alpha]
+obj = MAP ( circle ) ( INTERVALS ( 2 * PI ) ( 32 ) )
+VIEW ( obj )
+
+
 def spiral(h):
 	def spiral0(p):
 		alpha=p[0]
@@ -19,6 +34,7 @@ def spiral(p):
 	a,r=p
 	return[r*COS(a),r*SIN(a),a*0.2/(2*PI)]
 
+###tempio
 def Column(r,h):
 	basis = CUBOID([2*r*1.2, 2*r*1.2, h/12.0])
 	trunk = CYLINDER([r, (10./12)*h])(12)
@@ -100,7 +116,7 @@ R([1,2])(PI/3)(CUBOID([3,4,5]))
 
 ###
 def element():
-return COMP([T([1,2]),([-5,-5]))(CUBOID([10,10,2]));
+return COMP([ T([1,2]),([-5,-5]))(CUBOID([10,10,2]))]);
 
 element = COMP([T([1,2]),([-5,-5]))(CUBOID([10,10,2]));
 column=STRUCT(NN(10)([element,T(3)(2),R([1,2])(PI/8)]));
