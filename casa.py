@@ -1,9 +1,11 @@
 from pyplasm import * 
+###
 a=[0,0];
 b=[0,4];
 d=[4,0];
 c=[4,4];
 e=[2,6];
+piano = COLOR([0,1,0])(MKPOL([[[-10,-10],[10,10],[10,-10],[-10,10]],[[1,2,3,4]],None]));
 verts = [a,b,c,d,e];
 cells = ([[1,2,3,4,5]]);
 casa = MKPOL([verts,cells,None]);
@@ -18,10 +20,11 @@ sopra=COLOR([1,0,0])(PROD([tegole,Q(4)]));
 tegole2 =MKPOL([tetto2,[[1,2,3,4]],None]);
 sopra2=COLOR([1,0,0])(PROD([tegole2,Q(4)]));
 figura = DIFFERENCE([casa,Tp(porta),Tf(finestra)]);
-modello = PROD([figura,Q(4)]);
+modello = COLOR([1,0.9,0.85])(PROD([figura,Q(4)]));
 cam=CUBOID([0.5,6,0.5])
 casetta=STRUCT([modello,sopra,sopra2,cam]);
+disegno=STRUCT([ROTATE([2,3])(PI/2)(casetta),piano]);
 ###
-VIEW(casetta);
+VIEW(disegno);
 ###
 
