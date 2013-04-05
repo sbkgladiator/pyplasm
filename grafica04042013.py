@@ -10,7 +10,7 @@ pillars = INSR(PROD)(AA(QUOTE)([[-3,2,-36,2,-36,2,-18,2],[-3,2,-36,2],[-7.4,1.4,
 
 
 horiz_partitions = INSR(PROD)(AA(QUOTE)([[-3,2,36,2,36,2,18,2],[9,2,36,2,9],[-6,1.4,-23.6,1.4,-23.6,1.4]]))
-
+hor=INSR(PROD)(AA(QUOTE)([[-3,2,36,2,36,2,18,2],[9,2,36,2,9],[-6,1.4,-23.6,1.4,-23.6,1.4]]))
 
 building = STRUCT([foundations,pillars,T(2)(-6)(horiz_partitions)])
 
@@ -29,5 +29,15 @@ ramp2 = T([1,2,3])([3+2+36+2+36+2,3+2+12+2.66*10,6+1.25*9])(R([1,2])(-PI/2)(ramp
 pian=INSR(PROD)(AA(QUOTE)([[-3,-2,-36,-2,-36,-2,18],[-17,-2.66*10,6],[-6,-1.25*10,1.4]]))
 scala=T([3])([6+1.25*15])(STRUCT([ramp1,ramp2,pian]))
 building = STRUCT([foundations,pillars,T(2)(-6)(horiz_partitions),ramp1,ramp2,pian,scala])
-
 VIEW(building)
+###VIEW(building)
+GRID = COMP([INSR(PROD),AA(QUOTE)])
+beams_x = GRID([[-3,2,36,2,36,2,18,2],[-3,2,-36,2],
+    [-6,1.4,-23.6,1.4,-23.6,1.4]])
+beams_y = GRID([[-3,2,-36,2,-36,2,-18,2],[-3,2,36,2],
+    [-6,1.4,-23.6,1.4,-23.6,1.4]])
+beams = STRUCT([beams_x,beams_y])
+frame = STRUCT([beams])
+###VIEW(beams)
+
+###VIEW(POLYLINE([[0,0],[0,7]]))
