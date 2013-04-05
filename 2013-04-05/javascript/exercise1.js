@@ -46,9 +46,11 @@ var floor2=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-(h+1)*3,1]]);
 
 var floor3=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-(h+1)*4,1]]);
 
-var east=SIMPLEX_GRID()
-
-var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3])
+var east=R([1,2])(PI/2)(SIMPLEX_GRID([[-p1.x,p5.x-p1.x],[-h,h*3]]));
+var north=R([0,2])(-PI/2)(SIMPLEX_GRID([[-h,h*3],[-p1.y,q7.y-p1.y]]));
+var south=T([0])([p5.x])(R([0,2])(-PI/2)(SIMPLEX_GRID([[-h,h*3],[-p1.y,q7.y-p1.y]])));
+var west=T([1])([q7.y])(R([1,2])(PI/2)(SIMPLEX_GRID([[-p1.x,p5.x-p1.x],[-h,h*3]])));
+var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3,east,north,south,west])
 
 
 DRAW(building)
