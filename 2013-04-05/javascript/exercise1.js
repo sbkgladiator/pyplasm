@@ -46,10 +46,11 @@ var pillars2=STRUCT([pilla13,pilla23]);
 
 var floor2=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-h*2-1,1]]);
 
-var pilla14=T([1,2])([p1.y,h*3])(STRUCT([T([0])([p1.x])(quad),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pilla14=T([1,2])([p1.y,h*3])(STRUCT([T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
 var pilla24=T([1,2])([331,h*3])(STRUCT([T([0])([p1.x])(pil),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
 var pillars3=STRUCT([pilla14,pilla24]);
-var floor3=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-(h+1)*3,1]]);
+
+var floor3=STRUCT([SIMPLEX_GRID([[-80,-360,651-80-360],[-60,402-60],[-(h+1)*3,1]]),SIMPLEX_GRID([[-80,651-80],[-396,402-396],[-(h+1)*3,1]])]);
 
 
 var floor4=STRUCT([SIMPLEX_GRID([[-80,-360,651-80-360],[-60,402-60],[-(h+1)*4,1]]),SIMPLEX_GRID([[-80,651-80],[-335,402-335],[-(h+1)*4,1]])]);
