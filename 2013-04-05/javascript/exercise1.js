@@ -1,15 +1,54 @@
-var p1=(86,65)
-var p2=(226,240)
-var p3=(365,380)
-var p4=(505,518)
-var p5=(644,658)
-var P5=(86,332)
-var pq=(160,331)
-###
-var pil=EXTRUDE([126])(DISK(6,5)())
-var quad=EXTRUDE([126])(SIMPLEX_GRID([[13],[13]]))
-var pilla1=STRUCT([T([1])([100])(pil),T([1])([240])(pil),T([1])([380])(pil),T([1])([518])(pil),T([1])([658])(pil)])
-var pilla2=T([0])([350-616])(STRUCT([T([1])([100])(pil),T([1])([240])(quad),T([1])([380])(quad),T([1])([518])(quad)]))
-var pillars1=STRUCT([pilla1,pilla2])
-DRAW(pillars1)
-###
+function point2D(x,y){
+this.x=x;
+this.y=y;}
+
+var p1=new point2D(86,65)
+var p2=new point2D(226,65)
+var p3=new point2D(365,65)
+var p4=new point2D(505,65)
+var p5=new point2D(644,65)
+var P5=new point2D(86,331)
+
+var p6=new point2D(86,331)
+var pq=new point2D(160,331)
+var q7=new point2D(86,392)
+var q8=new point2D(160,383)
+
+var h=126;
+var c_quad=13;
+var pil=EXTRUDE([h])(DISK(6.5)());
+var quad=EXTRUDE([h])(T([0,1])([-c_quad/2,-c_quad/2])(SIMPLEX_GRID([[c_quad],[c_quad]])));
+
+var pilla1=T([1])([p1.y])(STRUCT([T([0])([p1.x])(pil),T([0])([p2.x])(pil),T([0])([p3.x])(pil),T([0])([p4.x])(pil),T([0])([p5.x])(pil)]));
+
+var pilla2=T([1])([331])(STRUCT([T([0])([160])(quad),T([0])([p1.x])(pil),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+
+var pilla3=T([1])([q7.y])(STRUCT([T([0,1])([160,-q7.y+q8.y])(quad),T([0])([86])(pil)]));
+
+var pillars0=STRUCT([pilla1,pilla2,pilla3]);
+var floor0=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-h,1]]);
+
+
+var pilla12=T([1,2])([p1.y,h])(STRUCT([T([0])([p1.x])(quad),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pilla22=T([1,2])([331,h])(STRUCT([T([0])([p1.x])(pil),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pillars1=STRUCT([pilla12,pilla22]);
+
+var pilla13=T([1,2])([p1.y,h*2])(STRUCT([T([0])([p1.x])(quad),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pilla23=T([1,2])([331,h*2])(STRUCT([T([0])([p1.x])(pil),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pillars2=STRUCT([pilla13,pilla23]);
+var floor1=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-h*2-1,1]]);
+
+var pilla14=T([1,2])([p1.y,h*3])(STRUCT([T([0])([p1.x])(quad),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pilla24=T([1,2])([331,h*3])(STRUCT([T([0])([p1.x])(pil),T([0])([p2.x])(quad),T([0])([p3.x])(quad),T([0])([p4.x])(quad),T([0])([p5.x])(quad)]));
+var pillars3=STRUCT([pilla14,pilla24]);
+var floor2=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-(h+1)*3,1]]);
+
+
+var floor3=SIMPLEX_GRID([[-80,651-80],[-60,402-60],[-(h+1)*4,1]]);
+
+var east=SIMPLEX_GRID()
+
+var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3])
+
+
+DRAW(building)
