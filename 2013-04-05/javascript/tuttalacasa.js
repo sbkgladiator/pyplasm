@@ -2,6 +2,16 @@ function point2D(x,y){
 this.x=x;
 this.y=y;}
 
+function arc(alpha,r,R){
+var domain = DOMAIN([[0,alpha],[r,R]])([36,50]);
+var mapping=function(v){
+var a=v[0];
+var r=v[1];
+return[r*COS(a),r*SIN(a)]}
+var model=MAP(mapping)(domain);
+return model;
+}
+
 var a=new point2D(80,60)
 var b=new point2D(651,60)
 var c=new point2D(651,402)
@@ -119,6 +129,8 @@ var findoppie = STRUCT(REPLICA(2)([fine3,T([0])([60])]));
 
 var colored = T([0,1,2])([-20,a.x-13,-275])(R([1,2])(PI/2)(COLOR([0,0,0])(findoppie)));
 
+cric1=();
+circ2=();
 
 
 floors=STRUCT([floor1,floor0,floor2,floor3,floor4]);
