@@ -37,8 +37,27 @@ var quad=EXTRUDE([h])(T([0,1])([r,r])(SIMPLEX_GRID([[r*2],[r*2]])));
 
 
 
+function arc(alpha,r,R){
+var domain = DOMAIN([[0,alpha],[r,R]])([36,50]);
+var mapping=function(v){
+var a=v[0];
+var r=v[1];
+return[r*COS(a),r*SIN(a)]}
+var model=MAP(mapping)(domain);
+return model;
+}
 
-var floor0=SIMPLEX_GRID([[-116,651-116],[-178,402-178],[10]]);
+var a=new point2D(80,60)
+var b=new point2D(651,60)
+var c=new point2D(651,402)
+var d=new point2D(80,402)
+var h=126;
+var r=6.5;
+
+circ1=EXTRUDE([10])(T([0,1])([560,266+66.5])(R([0,1])(-PI/2)((arc(PI,0,66.5)))));
+circ2=EXTRUDE([10])(T([0,1])([154+31,178])(R([0,1])(PI)((arc(PI,0,31)))));
+
+var floor0=STRUCT([SIMPLEX_GRID([[-80,560-80],[-325,399-325],[10]]),  SIMPLEX_GRID([[-154,560-154],[-266,325-266],[10]]),  SIMPLEX_GRID([[-154,511-154],[-178,266-178],[10]]),circ1,circ2]);
 
 var floor1=STRUCT([SIMPLEX_GRID([[-80,651-80],[-60,156-60,-242+156,333-242],[-h,10]]),SIMPLEX_GRID([[-80,300-80,-381+300,651-381],[-156,242-156],[-h,10]]),SIMPLEX_GRID([[-22,141-22,-388+141,651-388],[-333,386-333],[-h,10]])]);
 
@@ -129,8 +148,8 @@ var findoppie = STRUCT(REPLICA(2)([fine3,T([0])([60])]));
 
 var colored = T([0,1,2])([-20,a.x-13,-275])(R([1,2])(PI/2)(COLOR([0,0,0])(findoppie)));
 
-cric1=();
-circ2=();
+cric1=(arc(PI,0,66.5));
+circ2=(arc(PI,0,31));
 
 
 floors=STRUCT([floor1,floor0,floor2,floor3,floor4]);
