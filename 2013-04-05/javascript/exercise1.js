@@ -91,8 +91,10 @@ stair2 = T([0,1,2])([140,333+r,h])(R([0,1])(2*PI)(ramp));
 stair3 = T([0,1,2])([359,333+r,2*h])(R([0,1])(2*PI)(ramp));
 stair = STRUCT([stair1,stair2,stair3]);
 
+floors=STRUCT([floor1,floor0,floor2,floor3,floor4]);
+pillars=STRUCT([pillars0,pillars1,pillars2,pillars3]);
 
-var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3,floor4,east,south,west,north,stair])
+var building=STRUCT([pillars,floors,east,south,west,north,stair])
 
 
 DRAW(building)
