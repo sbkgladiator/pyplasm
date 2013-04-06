@@ -37,7 +37,7 @@ var pillars0=STRUCT([pilla1,pilla2,pilla3]);
 
 var floor0=SIMPLEX_GRID([[-154,651-154],[-178,402-178],[10]]);
 
-var floor1=STRUCT([SIMPLEX_GRID([[-80,651-80],[-60,156-60,-242+156,333-242],[-h,10]]),SIMPLEX_GRID([[-80,300-80,-381+300,651-381],[-156,242-156],[-h,10]]),SIMPLEX_GRID([[-22,141-22,-388+141,651-388],[-333,d.y-333],[-h,10]])]);
+var floor1=STRUCT([SIMPLEX_GRID([[-80,651-80],[-60,156-60,-242+156,333-242],[-h,10]]),SIMPLEX_GRID([[-80,300-80,-381+300,651-381],[-156,242-156],[-h,10]]),SIMPLEX_GRID([[-22,141-22,-388+141,651-388],[-333,386-333],[-h,10]])]);
 
 var floor2=STRUCT([SIMPLEX_GRID([[-80,651-80],[-60,348-60],[-h*2,10]]),SIMPLEX_GRID([[-80,140-80,-318+140,c.x-318],[-348,d.y-348],[-h*2,10]])]);
 var floor3=STRUCT([SIMPLEX_GRID([[-360,651-360],[-60,402-60],[-h*3,10]]),SIMPLEX_GRID([[-80,651-80],[-396,404-396],[-h*3,10]])]);
@@ -68,15 +68,16 @@ var pillars3=STRUCT([pilla14,pilla24]);
 var east=T([1])([a.y+12]) (R([1,2])(PI/2) (STRUCT([SIMPLEX_GRID([[-364,b.x-364],[-h,195-h,-243+195,313-243,-362+313,431-362,-483+431,534-483],[12]]),SIMPLEX_GRID([[-a.x,359-a.x],[-h,429-h,-483+429,534-483],[12]]),SIMPLEX_GRID([[-354,366-354,-492+366,b.x-492],[-h,534-h],[12]]) ])));
 
 var north=T([0])([b.x]) ( R([0,2])(-PI/2)(SIMPLEX_GRID([[-h,530-h],[-a.y,d.y-a.y],[12]])));
-var south=T([0])([a.x]) (R([0,2])(-PI/2)( STRUCT([SIMPLEX_GRID([[-h,136-h,-243+136,266-243,-362+266,429-362,-483+429,534-483],[-a.y,d.y-a.y],[12]]), SIMPLEX_GRID([[-h,534-h],[-a.y,12,-333+72+6,73-67,-67+6,6],[12]]), SIMPLEX_GRID([[-243,429-243],[-333,67],[12]])  ])));
 
-var west=T([1])([d.y]) (R([1,2])(PI/2)(SIMPLEX_GRID([[-a.x,b.x-a.x],[-h,530-h],[12]])));
+var south=T([0])([a.x]) (R([0,2])(-PI/2)( STRUCT([SIMPLEX_GRID([[-h,136-h,-243+136,266-243,-362+266,429-362,-483+429,534-483],[-a.y,d.y-a.y],[12]]), SIMPLEX_GRID([[-h,534-h],[-a.y,12,-333+72+6,6,-d.y+333+7,7],[12]]), SIMPLEX_GRID([[-243,429-243],[-333,67],[12]])  ])));
 
-
-
+var west=T([1])([d.y]) (R([1,2])(PI/2)(STRUCT([ SIMPLEX_GRID([[-a.x,b.x-a.x-90],[91,-120+91,195-120,-243+195,313-243,-362+313,534-362],[12]]), SIMPLEX_GRID([[-a.x,b.x-119-a.x,-7,28,-7,77],[-313,362-313],[12]]), SIMPLEX_GRID([[-b.x+90,90],[-h,313-h,-362+313,534-362],[12]]) , SIMPLEX_GRID([[-a.x,b.x-255-a.x,-255+128,128],[-195,243-195],[12]])  ])));
 
 
-var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3,floor4,east,south])
+
+
+
+var building=STRUCT([pillars0,pillars1,pillars2,pillars3,floor1,floor0,floor2,floor3,floor4,east,south,west])
 
 
 DRAW(building)
