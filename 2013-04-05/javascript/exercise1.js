@@ -35,7 +35,7 @@ var pillars0=STRUCT([pilla1,pilla2,pilla3]);
 
 
 
-var floor0=SIMPLEX_GRID([[-154,651-154],[-178,402-178],[10]]);
+var floor0=SIMPLEX_GRID([[-116,651-116],[-178,402-178],[10]]);
 
 var floor1=STRUCT([SIMPLEX_GRID([[-80,651-80],[-60,156-60,-242+156,333-242],[-h,10]]),SIMPLEX_GRID([[-80,300-80,-381+300,651-381],[-156,242-156],[-h,10]]),SIMPLEX_GRID([[-22,141-22,-388+141,651-388],[-333,386-333],[-h,10]])]);
 
@@ -78,17 +78,17 @@ var west=T([1])([d.y]) (R([1,2])(PI/2)(STRUCT([ SIMPLEX_GRID([[-a.x,b.x-a.x-90],
 DRAW(STRUCT([east,north,south,west]))
 
 
-depth = 26.6;
-raiser = 250/(2*9);
+depth = 14;
+raiser = 150.0/(2*9);
 step2D = SIMPLICIAL_COMPLEX([[0,0],[0,1.4+raiser],[depth,raiser],[depth,1.4+raiser]])([[0,2,1],[1,2,3]]);
-step3D = MAP([S0,S2,S1])(EXTRUDE([20])(step2D));
-ramp = STRUCT(REPLICA(13)([step3D,T([0,2])([depth,raiser])]));
+step3D = MAP([S0,S2,S1])(EXTRUDE([52])(step2D));
+ramp = STRUCT(REPLICA(16)([step3D,T([0,2])([depth,raiser])]));
 
 
 
-stair1 = T([0,1,2])([318,330,368])(R([0,1])(2*PI)(ramp));
-stair2 = T([0,1,2])([378,330,378])(R([0,1])(2*PI)(ramp));
-stair3 = T([0,1,2])([318,330,318])(R([0,1])(2*PI)(ramp));
+stair1 = T([0,1,2])([141,333+r,0])(R([0,1])(2*PI)(ramp));
+stair2 = T([0,1,2])([140,333+r,h])(R([0,1])(2*PI)(ramp));
+stair3 = T([0,1,2])([360,333+r,2*h])(R([0,1])(2*PI)(ramp));
 stair = STRUCT([stair1,stair2,stair3]);
 
 
