@@ -1,6 +1,5 @@
 #Web-Visual
 ##Design and development of the LAR-BIOMED app
-##
 
 
 - - -
