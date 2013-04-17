@@ -10,8 +10,7 @@
 
 ##Giorgio Cerrito
 ###Tasks:
-###Creation and implementation of Lar-Biomed client-side
-###(integration layer of other projects)
+###Creation and implementation of Lar-Biomed client-side (integration layer of other projects)
 - - -
 
 #How to...
